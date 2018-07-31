@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes informations{% endblock %}
+
+{% block body %}
+
+        <div class="center">
+                <a href="{{ path('current_user_edit') }}">Modifier l'utilisateur</a>   
+                <a href="{{ path('utilisateur_delete') }}">Supprimer</a>
+        </div>
+
+{% endblock %}

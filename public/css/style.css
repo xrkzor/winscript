@@ -1,0 +1,158 @@
+/* Css theme*/
+body {
+background-color: #222;  
+}
+h1.intro {
+  color: white;
+  text-align: center;
+}
+
+div.container {
+  margin: auto; 
+}
+
+.form-control {
+  border: 1px solid #000;
+  margin-bottom: 1rem;
+}
+.center {
+  text-align: center;
+}
+
+/* header*/
+ul li{
+  display: inline;
+  list-style-type: none;
+}
+
+
+/* Titre*/
+div.line-title{
+background: black;
+height: 1px;
+width: 100px;
+margin: auto;
+display: block;
+}
+
+/* Font-size*/
+.list-group .btn-info{
+  font-size: 12px;
+}
+
+/* formulaire surcouche css*/
+.form input,.form textarea{
+  display: block;
+width: 100%;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+color: #495057;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+border-radius: .25rem;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form.login input{
+  margin: 25px 0px;
+}
+
+/* Page article */
+
+a.view-article {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Formualire */
+div.content-form {
+  display: flex;
+  justify-content: center;
+}
+
+form.formulaire {
+  width: 30%;
+}
+
+div.content-form label {
+  display: block;
+}
+
+div.content-form input, div.content-form textarea {
+  border-radius: 3px;
+  border: 1px solid #BDBDBD;
+  width: 100%;
+}
+
+div.content-form input:hover, div.content-form textarea:hover {
+  border-radius: 3px;
+  border: 1px solid #2196F3;
+  width: 100%;
+}
+
+div.content-form button {
+  margin-top: 10px;
+  float: right;
+}
+
+input#cb {
+    margin: 5px 0;
+    height: 40px;
+}
+
+p. {
+  width: 15%;
+  text-align: center;
+}
+
+a.create {
+  margin-bottom: 10px;
+}
+
+button.expedie {
+  display: block;
+  margin: 10px 0;
+}
+
+.commande {
+  width: 48%;
+}
+
+.width-center {
+  margin: 0 auto;
+}
+
+.vente-title {
+  margin: 20px 0;
+}
+
+.content-article {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* profil*/
+.modif-profil{
+  float: right;
+}
+
+
+/* article*/
+
+.card-img-top{
+float: left;
+width: 50%!important;
+}
+
+.card-body{
+  float: right;
+  width: 50%;
+}
+
+
+/* categorie */
+#content-create {
+  width: 58%;
+  margin: 0 auto 10px;
+}

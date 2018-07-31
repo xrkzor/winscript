@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="intro">Inscription !</h1>
+
+
+		{{ form_start(form) }}
+
+		{{ form_row(form.username, {'label': 'Nom d\'utilisateur','attr':{'placeholder': 'Nom d\'utilisateur'}}) }}
+
+		{{ form_row(form.password, {'label': 'Mot de passe', 'attr':{'placeholder': 'Mot de passe'}}) }}
+		
+		{{ form_row(form.confirm_password, {'label': 'Confirmation', 'attr':{'placeholder': 'Confirmez votre mot de passe '}}) }}
+		
+		{{ form_row(form.radio, {'attr':{'placeholder': 'Nom de votre media'}}) }}
+
+		{{ form_widget(form) }}
+
+		<button type="submit" class="btn btn-success">Enregistrer !</button>
+		<a href="{{ path('security_login')}}"class="btn btn-info">Annuler</a>
+
+		{{ form_end(form) }}
+	</div>
+
+{% endblock %}
