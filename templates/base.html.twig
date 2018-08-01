@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}WinScript{% endblock %}</title>
         {% block stylesheets %}
-        <link href="{{ ('css/style.css') }}" rel="stylesheet">
-        <link href="{{ ('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         {% endblock %}
     </head>
-    <body>
+    {% block header %}
+    <header>
      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand">
-        <a href="/home"><img src="../../img/logo.png"  alt="Logo" style="width:200px;"></a>
-      </a>
+        <a href="{{ path('home') }}"><img src="../../img/logo.png"  alt="Logo" style="width:200px;"></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <ul class="navbar-nav">
@@ -26,14 +26,17 @@
         </div>
       </div>
           <a href="{{ path('profil') }}" class="nav-item nav-link">Mon compte</a>
-          <a href="{{ path('security_logout') }}" class="nav-item nav-link">Déconnexion</a>
+          <a href="{{ path('logout') }}" class="nav-item nav-link">Déconnexion</a>
       </nav>
-      {% block body %}{% endblock %}
-      <footer class="footer mt-5 ">
-        <div class="container">
-          <span class="text-muted"><center>WinScript 2018.</center></span>
-        </div>
-      </footer>
-      {% block javascripts %}{% endblock %}
+    </header>
+    {% endblock %}
+    {% block body %}
+    <body>
     </body>
+    {% endblock %}
+    <footer class="footer mt-5 ">
+      <div class="container">
+        <span class="text-muted"><center>WinScript 2018.</center></span>
+        </div>
+    </footer>
 </html>

@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\UtilisateurRepository;
 use App\Entity\Utilisateur;
+use App\Entity\Version;
+use App\Repository\VersionRepository;
 use App\Form\UtilisateurType;
 use App\Form\UtilisateurEditType;
 use Symfony\Component\Routing\Annotation\Route;

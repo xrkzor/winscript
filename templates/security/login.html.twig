@@ -1,19 +1,36 @@
-{% extends 'base.html.twig' %}
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}WinScript{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% endblock %}
 {% block body %}
 	<div class="container">
-		<h1 class="intro">Connexion !</h1>
-		<form action="{{ path('security_login') }}" method="post">
+		<div class="center">
+			<img src="../../img/logo.png" alt="Logo" style="width:300px">
+		</div>
+		<form action="{{ path('login_check') }}" method="post">
 			<div class=form-group">
 				<input placeholder="Nom d'utilisateur" required name="_username" type="text" class="form-control">
 			</div>
 			<div class=form-group">
-				<input placeholder="Mot de passe" required name="_password" type="text" class="form-control">
+				<input type="password" placeholder="Mot de passe" required name="_password" type="text" class="form-control">
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-success">Connexion</button>
-				<a href="{{ path('security_registration') }}"class="btn btn-primary">Inscription</a>
+				<a href="{{ path('registration') }}"class="btn btn-primary">Inscription</a>
 			</div>
 		</form>
 	</div>
 {% endblock %}
+      <footer class="footer mt-5 ">
+        <div class="container">
+          <span class="text-muted"><center>WinScript 2018.</center></span>
+        </div>
+      </footer>
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>

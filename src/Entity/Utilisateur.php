@@ -54,7 +54,6 @@ class Utilisateur implements UserInterface
      */
     public $confirm_password;
     
-
     public function getId()
     {
         return $this->id;
@@ -119,4 +118,5 @@ class Utilisateur implements UserInterface
     public function getRoles() {
         return ['ROLE_USER'];
     }
+
 }

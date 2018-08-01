@@ -7,6 +7,10 @@ h1.intro {
   text-align: center;
 }
 
+label {
+  color: white;
+}
+
 div.container {
   margin: auto; 
 }
@@ -41,6 +45,21 @@ display: block;
 }
 
 /* formulaire surcouche css*/
+form {
+  width: 50%;
+  margin: auto;
+}
+
+div.form-group {
+  text-align: center;
+}
+
+div.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .form input,.form textarea{
   display: block;
 width: 100%;

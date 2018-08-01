@@ -9,12 +9,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends Controller
 {
     /**
-     * @Route("/inscription", name="security_registration")
+     * @Route("/inscription", name="registration")
+     * @Security("is_granted('IS_AUTHENTICATED_ANONYMOUSLY')")
      */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
     	
@@ -30,25 +32,19 @@ class SecurityController extends Controller
     		$manager->persist($utilisateur);
     		$manager->flush();
 
-    		return $this->redirectToRoute('security_login');
+    		return $this->redirectToRoute('login');
     	}
     	return $this->render('security/registration.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/security_login", name="security_login")
+     * @Route("/login", name="login")
+     * @Security("is_granted('IS_AUTHENTICATED_ANONYMOUSLY')")
      */
-    public function login(){
-        
+    public function login(){    
+
         return $this->render('security/login.html.twig', [
             'controller_name' => 'SecurityController',
         ]);
     }
-
-   /**
-    * @Route("/security_logout", name="security_logout")
-    */
-   public function logout(){
-
-   }
 }
