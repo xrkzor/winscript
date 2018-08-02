@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Title_WinMedia_2014</title>
+</head>
+<!--
+Ne pas installer ce script sans le support WinMedia.
+-->
+
+<br><FONT face="Tahoma" color="#000000" size=1>WEB INTEGRATION - Display currently and recently played tracks on your website</FONT><br>
+
+
+<!--CURRENTSONG :-->
+
+
+~_top 1 ,isnull((select resource from path where history.media=path.media and extension=2),''),convert(nvarchar,history.hour,103),convert(nvarchar,history.hour,108),case when history.duration>13000 then performer else '' end, from history,media,category where station=STATIONINDEX and media!=1 and media=imedia and history.category=icategory order by ihistory desc~
+
+<!--FORMULAIRE D'ENVOI :-->
+<!--FORM SEND :-->
+<body onload='document.formulaire1.submit();'>
+<iframe name="uptitre" src="javascript:void(0)" width="350" height="100"></iframe>
+<form name='formulaire1' method='post'  action='URL AVEC LE .PHP ICI' target='uptitre'>
+
+<!--METADATAS CURRENTSONG :-->
+<textarea name="image" cols=1 rows=1 style="visibility:hidden">~?g~</textarea>
+<textarea name="starttime" cols=1 rows=1 style="visibility:hidden">~?h~ ~?i~</textarea>
+<textarea name="artist" cols=1 rows=1 style="visibility:hidden">~?j~</textarea>
+~_~
+
+</form>
+</body>
+</html>
