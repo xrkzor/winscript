@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class UtilisateurController extends Controller
@@ -29,16 +31,19 @@ class UtilisateurController extends Controller
     /**
      * @Route("/utilisateur/edit", name="current_user_edit")
      */
-    public function editCurrentUser(ObjectManager $manager, Request $request){
+    public function editCurrentUser(ObjectManager $manager, Request $request, UserPasswordEncoderInterface $encoder){
         $utilisateur = $this->getUser();
         $form = $this->createForm(UtilisateurEditType::class, $utilisateur);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $hash = $encoder->encodePassword($utilisateur, $utilisateur->getPassword());
+            $utilisateur->setPassword($hash);
+
             $manager->persist($utilisateur);
             $manager->flush();
-            return $this->render('utilisateur/profil.html.twig');
+            return $this->redirectToRoute('profil');
         }
 
         $formView = $form->createView();

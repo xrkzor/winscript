@@ -1,8 +1,14 @@
-{% extends 'base.html.twig' %}
-
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-{% block body %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}WinScript{% endblock %}</title>
+        {% block stylesheets %}
+        	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+       		<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% endblock %}
+	{% block body %}
 	<div class="container">
 		<h1 class="intro">Inscription !</h1>
 
@@ -24,5 +30,12 @@
 
 		{{ form_end(form) }}
 	</div>
-
-{% endblock %}
+	{% endblock %}
+	 <footer class="footer mt-5 ">
+        <div class="container">
+          <span class="text-muted"><center>WinScript 2018.</center></span>
+        </div>
+      </footer>
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>

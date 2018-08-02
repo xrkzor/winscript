@@ -53,7 +53,7 @@ class Utilisateur implements UserInterface
      * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passe ne sont pas identiques !")
      */
     public $confirm_password;
-    
+
     public function getId()
     {
         return $this->id;
