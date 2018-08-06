@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Field;
 use App\Repository\FieldRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,13 +10,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ScriptController extends Controller
 {
+    
     /**
      * @Route("/script", name="script")
      */
-    public function index(FieldRepository $repo)
+    public function index(FieldRepository $repo, Request $request)
     {
+        $utilisateur = $this->getUser();
+        $version = $utilisateur->getVersion();  
+        $type =  $request->request->get('type');
+
         $fields = $repo->findBy(
-            [],
+            ['version' => $version,
+             'type' => $type],
             ['title' => 'ASC']
         );
 
@@ -24,7 +31,7 @@ class ScriptController extends Controller
             $options .= "<option value='{$field->getFieldName()}'>{$field->getTitle()}</option>";
         }
 
-        return $this->render('script/index.html.twig', [
+        return $this->render('script/script.html.twig', [
             'options' => $options
         ]);
     }
@@ -50,12 +57,19 @@ class ScriptController extends Controller
 
             $infos = $repo->findOneByFieldName($fieldName);
 
-            $sql[] = $infos->getQuery();
+            if(!$infos){
+                $query = $fieldName;
+                $render = "~?x~";
+            } else {
+                $query = $infos->getQuery();
+                $render = $infos->getRender();
+            }
 
-            $render = str_replace("x", $alphabet[$numero], $infos->getRender());
+            $sql[] = $query;
+            
+            $render = str_replace("x", $alphabet[$numero], $render);
 
-            if($infos->getPlaceholders() == 2) {
-
+            if($infos && $infos->getPlaceholders() == 2) {
                 $numero++; 
                 $render = str_replace("y", $alphabet[$numero], $render);
             } 
@@ -70,7 +84,7 @@ class ScriptController extends Controller
             $numero++;
         }
 
-        $sql = join(",", $sql);
+        $sql = implode(", ", $sql);
 
         $textareas = join("\n", $textareas);
 
@@ -80,17 +94,18 @@ class ScriptController extends Controller
         $template = str_replace('{{TEXTAREAS}}', $textareas, $template);
 
 
-        file_put_contents('./output.html', $template);
+        file_put_contents('./titres_web.html', $template);
         
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="'.basename("./output.html").'"');
+        header('Content-Disposition: attachment; filename="'.basename("./titres_web.html").'"');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: ' . filesize("./output.html"));
-        flush(); 
-        readfile("./output.html");
+        header('Content-Length: ' . filesize("./titres_web.html"));
+        flush();
+
+        readfile("./titres_web.html");
         exit;
     }
 }

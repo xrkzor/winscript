@@ -9,6 +9,8 @@ h1.intro {
 
 label {
   color: white;
+  display: block;
+
 }
 
 div.container {

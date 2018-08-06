@@ -18,4 +18,13 @@ class HomeController extends Controller
             'controller_name' => 'HomeController',
         ]);   
     }
+
+    /**
+     * @Route("/type", name="type")
+     */
+    public function indexType()
+    {
+        return $this->render('script/index.html.twig');
+    }
+    
 }

@@ -1,24 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Formulaire de génération de script</h1>
-
-    <form action="{{path('traitement_script')}}" method="post">
-        <label for="champ1">Champ 1</label>
-        <select name="champs[0]" id="champ1">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-        <label for="champ2">Champ 2</label>
-        <select name="champs[1]" id="champ2">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-        <label for="champ3">Champ 3</label>
-        <select name="champs[2]" id="champ3">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-        <button type="submit">Go !</button>
+    <form name="type" action="{{path('script')}}" method="post">
+         <input type="radio" name="type" value="Web">Export Web<br>
+         <input type="radio" name="type" value="xml">Export XML<br>
+        <button type="submit"class="btn btn-success mt-2">Valider</button>
     </form>
 {% endblock %}

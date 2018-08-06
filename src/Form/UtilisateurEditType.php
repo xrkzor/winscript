@@ -17,7 +17,7 @@ class UtilisateurEditType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('password', PasswordType::class)
+            ->add('password',PasswordType::class)
             ->add('confirm_password', PasswordType::class)
             ->add('radio')
             ->add('version', EntityType::class, array(
