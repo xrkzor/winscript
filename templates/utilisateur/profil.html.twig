@@ -7,8 +7,8 @@
 		<h1 class="intro">Mes informations</h1>
 			<div class="container">
 				<div class="center">
-					<p>Nom d'utilisateur: {{ utilisateur.username }}</p>
-					<p>Nom de votre média: {{ utilisateur.radio }}</p>
+					<p>Nom d'utilisateur: {{ utilisateur.username|capitalize }}</p>
+					<p>Nom de votre média: {{ utilisateur.radio|capitalize }}</p>
 					<p>Version de votre WinMedia {{ utilisateur.version.version }}</p>
 				</div>
     <div class="center">

@@ -1,10 +1,13 @@
-/* Css theme*/
+
 body {
+margin:0;
+padding:0;
 background-color: #222;  
 }
 h1.intro {
   color: white;
   text-align: center;
+  margin: 2%;
 }
 
 label {
@@ -17,22 +20,40 @@ div.container {
   margin: auto; 
 }
 
+div.center p {
+  color: white;
+  text-align: center;
+}
+
 .form-control {
   border: 1px solid #000;
   margin-bottom: 1rem;
 }
+
+body > form:nth-child(2)
 .center {
   text-align: center;
 }
 
-/* header*/
+
 ul li{
   display: inline;
   list-style-type: none;
 }
 
+a.nav-item {
+  text-decoration: none;
+  color: #9a9da0;
+}
 
-/* Titre*/
+div.center a {
+  text-align: center;
+}
+
+div.container div.center {
+  text-align: center;
+}
+
 div.line-title{
 background: black;
 height: 1px;
@@ -41,15 +62,15 @@ margin: auto;
 display: block;
 }
 
-/* Font-size*/
 .list-group .btn-info{
   font-size: 12px;
 }
 
-/* formulaire surcouche css*/
 form {
-  width: 50%;
+  width: 40%;
   margin: auto;
+  text-align: center;
+  color: white;
 }
 
 div.form-group {
@@ -60,6 +81,8 @@ div.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  height: auto;
+  width: 50%;
 }
 
 .form input,.form textarea{

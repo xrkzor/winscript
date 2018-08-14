@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>{% block title %}WinScript{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="icon" type="image/png" href="../../img/favicon.ico"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -34,14 +33,14 @@
     {% endblock %}
     {% block body %}
     <body>
+      <h1 class="intro">Mentions Légales</h1>
+      <div class="container">
+        <center><p>Le site http://www.winscript.winmedia.org est la propriété de <a href="http://www.winmedia.org">WinMedia Group</a>, SAS au capital de 90 258,65 €, sous le numéro 401 189 980 <br />(SIRET: 40118998000048 / APE : 5829C - Edition de logiciels applicatifs) dont le siège social est situé au : BATIMENT B - ATHELIA IV - 375 AV DU MISTRAL - 13600 LA CIOTAT - France - Téléphone: 04.94.10.11.02 - Email: stephane@winmedia.fr</center></p>
     </body>
     {% endblock %}
     <footer class="footer mt-5 ">
       <div class="container">
         <span class="text-muted"><center>WinScript 2018.</center></span>
         </div>
-      <div class="container">
-        <span class="text-muted"><center><a href="{{('legal')}}">Legal</a></center></span>
-      </div>
     </footer>
 </html>

@@ -4,91 +4,21 @@
     <h1 class="intro">Formulaire de génération de script</h1>
     <form action="{{path('traitement_script')}}" method="post">
     <div class="row">
-    <div class="col-sm-4">
-        <label for="champ1">Champ 1</label>
-        <select name="champs[0]" id="champ1">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
+        {% for key,field in fields %}
+            <div class="col-sm-4">
+                <label for="champ{{key}}">Champ {{key}}</label>
+                    <select name="champs[{{key}}]" id="champ{{key}}">
+                        <option value="">Sélectionnez un champ</option>
+                        {{options|raw}}
+                    </select>
+            </div>
+        {% endfor %}
+            <div class="col-sm-4">
+                <label for="champ{{fields|length}}">Champ personnalisé</label>
+                <input type="text" name="champs[{{fields|length}}]" id="champ{{fields|length}}">     
+            </div>
     </div>
-    <div class="col-sm-4">
-        <label for="champ2">Champ 2</label>
-        <select name="champs[1]" id="champ2">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-    <div class="col-sm-4">
-        <label for="champ3">Champ 3</label>
-        <select name="champs[2]" id="champ3">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-    <div class="col-sm-4">
-         <label for="champ4">Champ 4</label>
-        <select name="champs[3]" id="champ4">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-    <div class="col-sm-4">
-         <label for="champ5">Champ 5</label>
-        <select name="champs[4]" id="champ5">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 6</label>
-        <select name="champs[5]" id="champ6">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 6</label>
-        <select name="champs[5]" id="champ7">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 7</label>
-        <select name="champs[6]" id="champ8">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 8</label>
-        <select name="champs[7]" id="champ9">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 9</label>
-        <select name="champs[8]" id="champ10">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-     <div class="col-sm-4">
-         <label for="champ5">Champ 10</label>
-        <select name="champs[9]" id="champ11">
-            <option value="">Sélectionnez un champ</option>
-            {{options|raw}}
-        </select>
-    </div>
-    <div class="col-sm-4">
-        <label for="champ5">Champ personnalisé</label>
-        <input type="text" name="champs[10]" id="champ12">
-        {{options|raw}}
-    </div>
-        <br /><button type="submit" class="btn btn-success">Générer!</button>
+    <br /><button type="submit" class="btn btn-success">Générer</button>
         <a href="{{ path('type')}}"class="btn btn-info">Retour</a>
     </form>
-    </div>
-    </div>
 {% endblock %}

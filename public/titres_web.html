@@ -13,7 +13,7 @@ Ne pas installer ce script sans le support WinMedia.
 <!--CURRENTSONG :-->
 
 
-~_top 1 year, language, convert(nvarchar,history.hour,103),convert(nvarchar,history.hour,108), isnull((select resource from path where history.media=path.media and extension=2),''), _latinos from history,media,category where station=STATIONINDEX and media!=1 and media=imedia and history.category=icategory order by ihistory desc~
+~_top 1 case when history.duration>110000 then album else '' end from history,media,category where station=STATIONINDEX and media!=1 and media=imedia and history.category=icategory order by ihistory desc~
 
 <!--FORMULAIRE D'ENVOI :-->
 <!--FORM SEND :-->
@@ -22,11 +22,7 @@ Ne pas installer ce script sans le support WinMedia.
 <form name='formulaire1' method='post'  action='URL AVEC LE .PHP ICI' target='uptitre'>
 
 <!--METADATAS-->
-<textarea name="year" cols=1 rows=1 style="visibility:hidden">~?a~</textarea>
-<textarea name="language" cols=1 rows=1 style="visibility:hidden">~?b~</textarea>
-<textarea name="starttime" cols=1 rows=1 style="visibility:hidden">~?c~ ~?d~</textarea>
-<textarea name="image" cols=1 rows=1 style="visibility:hidden">~?e~</textarea>
-<textarea name="_latinos" cols=1 rows=1 style="visibility:hidden">~?f~</textarea>
+<textarea name="album" cols=1 rows=1 style="visibility:hidden">~?a~</textarea>
 ~_~
 
 </form>

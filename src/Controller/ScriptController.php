@@ -30,9 +30,8 @@ class ScriptController extends Controller
         foreach($fields as $field) {
             $options .= "<option value='{$field->getFieldName()}'>{$field->getTitle()}</option>";
         }
-
         return $this->render('script/script.html.twig', [
-            'options' => $options
+            'options' => $options, 'fields' => $fields 
         ]);
     }
 
@@ -74,9 +73,8 @@ class ScriptController extends Controller
                 $render = str_replace("y", $alphabet[$numero], $render);
             } 
 
-            $textarea = "<textarea name=\"$fieldName\" cols=1 rows=1 style=\"visibility:hidden\">";
-            $textarea .= $render;
-            $textarea .= "</textarea>";
+            $textarea = "<textarea name=\"$fieldName\" cols=1 rows=1 style=\"visibility:hidden\">$render</textarea>";
+         
 
             $textareas[] = $textarea;
 
@@ -108,4 +106,5 @@ class ScriptController extends Controller
         readfile("./titres_web.html");
         exit;
     }
+
 }

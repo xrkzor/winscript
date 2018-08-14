@@ -3,6 +3,8 @@
 
 {% block body %}
 
-<h1 class="intro">Bienvenue</h1>
+<h1 class="intro">Bienvenue {{ app.user.username|capitalize }}</h1>
+<div class="center">
+<p>WinScript va vous permettre de créer vous même vos propres scripts d'export de données pour votre <b>WinMedia</b> pour cela rendez-vous dans la partie Générateur. Si vous avez des doutes ou des questions sur l'utilisation du site et sur l'installation des scripts la section Tutoriel est la pour vous renseignez!</p> 
 
 {% endblock %}
