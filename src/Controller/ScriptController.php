@@ -50,13 +50,9 @@ class ScriptController extends Controller
         $template = file_get_contents('../src/Controller/template.html');
 
         $sql = []; 
-
-        $urlField = [];
-
         $textareas = [];
 
         $alphabet = "abcdefghijklmnopq";
-
         $numero = 0;
 
         foreach($fields as $fieldName) {
@@ -67,15 +63,13 @@ class ScriptController extends Controller
             if(!$infos){
                 $query = $fieldName;
                 $render = "~?x~";
-                $url = $fieldName;
             } else {
                 $query = $infos->getQuery();
                 $render = $infos->getRender();
+                $url = $fieldName;
             }
 
             $sql[] = $query;
-
-            $urlField[] = $url;
             
             $render = str_replace("x", $alphabet[$numero], $render);
 
@@ -86,20 +80,14 @@ class ScriptController extends Controller
 
             $textarea = "<textarea name=\"$fieldName\" cols=1 rows=1 style=\"visibility:hidden\">$render</textarea>";
          
-
             $textareas[] = $textarea;
-
 
             $numero++;
         }
 
-        $urlField = join($urlField);
-
         $sql = implode(", ", $sql);
 
         $textareas = join("\n", $textareas);
-
-        $template = str_replace('{{URL}}', $urlField, $template);
 
         $template = str_replace('{{SQL}}', $sql, $template);
 
@@ -152,7 +140,6 @@ class ScriptController extends Controller
             }
 
             $sql[] = $query;
-            $urlField[] = $url;
             
             $render = str_replace("x", $alphabet[$numero], $render);
 
