@@ -8,12 +8,20 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125773470-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-125773470-1');
+        </script>
         {% endblock %}
     </head>
-    {% block header %}
+    <body>
     <header>
      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand">
         <a href="{{ path('home') }}"><img src="../../img/logo.png"  alt="Logo" style="width:200px;"></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -31,17 +39,14 @@
           <a href="{{ path('logout') }}" class="nav-item nav-link">Déconnexion</a>
       </nav>
     </header>
-    {% endblock %}
-    {% block body %}
-    <body>
-    </body>
-    {% endblock %}
-    <footer class="footer mt-5 ">
+    <main>{% block body %}{% endblock %}</main>
+    <footer class="footer mt-5">
       <div class="container">
         <span class="text-muted"><center>WinScript 2018.</center></span>
-        </div>
+      </div>
       <div class="container">
         <span class="text-muted"><center><a href="{{('legal')}}">Legal</a></center></span>
       </div>
     </footer>
+  </body>
 </html>

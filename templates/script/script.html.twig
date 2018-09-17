@@ -3,7 +3,7 @@
 {% block body %}
     <h1 class="intro">Formulaire de génération de script</h1>
     <form action="{{path('traitement_script')}}" method="post">
-    <div class="row">
+    <div class="row" >
         {% for key,field in fields %}
             <div class="col-sm-4">
                 <label for="champ{{key}}">Champ {{key}}</label>
